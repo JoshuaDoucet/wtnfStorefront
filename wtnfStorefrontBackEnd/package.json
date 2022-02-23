@@ -6,14 +6,20 @@
   "scripts": {
     "prettier": "prettier --config .prettierrc \"src/**/*.{js,ts}\" --write",
     "setupdb": "tsc && node dist/utilities/dbsetup",
+    "init-prod-db": "ENV=prod db-migrate --env prod up",
+    "reset-prod-db": "ENV=prod db-migrate --env prod reset",
     "start": "node dist/server.js",
     "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess 'node ./dist/server.js'",
     "test": "tsc && ENV=test db-migrate --env test up && ENV=test jasmine && db-migrate db:drop test",
     "test-save": "tsc && ENV=test db-migrate --env test up && ENV=test jasmine > ./src/tests/JASMINE_TEST_RESULTS.txt && db-migrate db:drop test",
     "build": "tsc"
   },
-  "author": "Udacity",
+  "author": "Joshua Doucet",
   "license": "ISC",
+  "engines": { 
+    "node" : ">12.25.0",
+    "npm" : ">8.1.2"
+  },
   "dependencies": {
     "@types/cors": "^2.8.12",
     "body-parser": "^1.19.0",
