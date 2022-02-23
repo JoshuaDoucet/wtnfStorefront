@@ -1,0 +1,10 @@
+Future application improvments
+- Update a product's boh (balance on hand) when an order is placed
+- Add meaningful data to the order confirm page
+- Create an orders page where users can see details about all of their past orders
+- Add a create produt page (for administrator users)
+- Connect a location to a user profile for quick checkout
+- Connect a location to an order for shipping purposes
+- Incorporate a payment system when placing orders
+- Add carrier and tracking number information to an order
+- Incorporate an email system to notify admins and users when an order is placed

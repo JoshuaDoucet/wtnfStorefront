@@ -1,0 +1,24 @@
+.products-container {
+    display: block;
+    margin: auto;
+    text-align: center;
+    background-color: #FDFAF6;
+    width: fit-content;
+    height: fit-content;
+    padding-bottom: 20px;
+}
+
+.page-title {
+    display: block;
+    font-size: x-large;
+    text-align: center;
+    padding: 20px;
+}
+.products-list-container {
+    display: grid;
+    grid-template-columns: 350px 350px;
+    margin: auto;
+    text-align: center;
+    background-color: #FDFAF6;
+    width: fit-content;
+}

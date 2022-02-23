@@ -1,0 +1,14 @@
+.product-item {
+    padding: 20px 20px 20px 20px;
+    margin: 20px 20px 20px 20px;
+    width: 280px;
+    height: 400px;
+    background-color: #FDFAF6;
+}
+
+.product-sub-item {
+    display: block;
+    margin: auto;
+    text-align: center;
+    border-radius: 15px;
+}

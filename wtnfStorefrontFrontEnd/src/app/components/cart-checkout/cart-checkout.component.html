@@ -1,0 +1,213 @@
+<form #form="ngForm" (ngSubmit)="placeOrder()">
+    <h2>Checkout</h2>
+    <h4>Your Information</h4>
+    <label for="firstName">First Name: </label>
+    <input type="text" 
+            name="firstName" 
+            required 
+            minlength="2" 
+            maxlength="50" 
+            placeholder="Jane" 
+            [(ngModel)]="firstName"
+            #checkFirst="ngModel"><br>
+
+    <label for="lastName">Last Name: </label>
+    <input type="text" 
+            name="lastName" 
+            required 
+            minlength="2"  
+            maxlength="50" 
+            placeholder="Doe" 
+            [(ngModel)]="lastName"
+            #checkLast="ngModel"><br>
+
+    <label for="phone">Phone #: </label>
+    <input type="number" 
+            name="phone" 
+            placeholder="8885550000" 
+            required 
+            min="1000000" 
+            maxlength="999999999999999" 
+            [(ngModel)]="phone"
+            #checkPhone="ngModel"><br>
+
+    <label for="email">Email: </label>
+    <input type="email" 
+            name="email" 
+            placeholder="your@email.com" 
+            required 
+            minlength="6" 
+            maxlength="400"
+            [(ngModel)]="email"
+            #checkEmail="ngModel"><br>
+
+    <h4>Shipping Address</h4>
+
+    <label for="addr1">Street Address: </label>
+    <input type="text" 
+            name="addr1" 
+            placeholder="123 Sample St." 
+            required 
+            minlength="6" 
+            maxlength="80" 
+            [(ngModel)]="addr1"
+            #checkStreet="ngModel"><br>
+
+    <label for="addr2">Address Line 2: </label>
+    <input type="text" 
+            name="addr2" 
+            placeholder="(optional)" 
+            maxlength="80" 
+            [(ngModel)]="addr2"><br>
+
+    <label for="city">City: </label>
+    <input type="text" 
+            name="city" 
+            placeholder="Roundtown" 
+            required 
+            minlength="2" 
+            maxlength="50" 
+            [(ngModel)]="city"
+            #checkCity="ngModel"><br>
+
+    <label for="state">State: </label>
+    <input type="text"
+            name="state" 
+            placeholder="Idaho" 
+            required 
+            minlength="2" 
+            maxlength="20" 
+            [(ngModel)]="state"
+            #checkState="ngModel"><br>
+
+    <label for="zip">ZIP Code: </label>
+    <input type="number" 
+            name="zip" 
+            required 
+            min="1" 
+            max="9999999999" 
+            placeholder="65433" 
+            [(ngModel)]="zip"
+            #checkZip="ngModel"><br>
+
+    <label for="country">Country: </label>
+    <input type="text" 
+            name="country" 
+            required 
+            minlength="2" 
+            maxlength="60" 
+            placeholder="United States" 
+            [(ngModel)]="country"
+            #checkCountry="ngModel"><br><br>
+
+    <button type="submit" [disabled]="form.invalid">Place Order</button>
+
+    <!--Error messages-->
+    <div class="error" *ngIf="checkFirst.invalid && checkFirst.dirty">
+        <div *ngIf="checkFirst.hasError('required')">
+            First name is required
+        </div>
+        <div *ngIf="checkFirst.hasError('minlength')">
+            First name must be at least 2 characters <br>
+        </div>
+        <div *ngIf="checkFirst.hasError('maxlength')">
+            First name must be less than 50 characters <br>
+        </div>
+    </div>
+
+    <div class="error" *ngIf="checkLast.invalid && checkLast.dirty">
+        <div *ngIf="checkLast.hasError('required')">
+            Last name is required
+        </div>
+        <div *ngIf="checkLast.hasError('minlength')">
+            Last name must be at least 2 characters <br>
+        </div>
+        <div *ngIf="checkLast.hasError('maxlength')">
+            Last name must be less than 50 characters <br>
+        </div>
+    </div>
+
+    <div class="error" *ngIf="checkPhone.invalid && checkPhone.dirty">
+        <div *ngIf="checkPhone.hasError('required')">
+            Phone Number is required
+        </div>
+        <div *ngIf="checkPhone.hasError('min')">
+            Phone Number is invalid <br>
+        </div>
+        <div *ngIf="checkEmail.hasError('maxlength')">
+            Phone Number is too long <br>
+        </div>
+    </div>
+
+    <div class="error" *ngIf="checkEmail.invalid && checkEmail.dirty">
+        <div *ngIf="checkEmail.hasError('required')">
+            Email is required
+        </div>
+        <div *ngIf="checkEmail.hasError('minlength')">
+            Email must be at least 6 characters <br>
+        </div>
+        <div *ngIf="checkEmail.hasError('maxlength')">
+            Email must be less than 400 characters <br>
+        </div>
+    </div>
+
+    <div class="error" *ngIf="checkStreet.invalid && checkStreet.dirty">
+        <div *ngIf="checkStreet.hasError('required')">
+            Street is required
+        </div>
+        <div *ngIf="checkStreet.hasError('minlength')">
+            Street address must be at least 6 characters <br>
+        </div>
+        <div *ngIf="checkCity.hasError('maxlength')">
+            Street address must be less than 60 characters <br>
+        </div>
+    </div>
+
+    <div class="error" *ngIf="checkCity.invalid && checkCity.dirty">
+        <div *ngIf="checkCity.hasError('required')">
+            City is required
+        </div>
+        <div *ngIf="checkCity.hasError('minlength')">
+            City must be at least 2 characters <br>
+        </div>
+        <div *ngIf="checkCity.hasError('maxlength')">
+            State must be less than 50 characters <br>
+        </div>
+    </div>
+
+    <div class="error" *ngIf="checkState.invalid && checkState.dirty">
+        <div *ngIf="checkState.hasError('required')">
+            State is required
+        </div>
+        <div *ngIf="checkState.hasError('minlength')">
+            State must be at least 2 characters <br>
+        </div>
+        <div *ngIf="checkState.hasError('maxlength')">
+            State must be less than 20 characters <br>
+        </div>
+    </div>
+
+    <div class="error" *ngIf="checkZip.invalid && checkZip.dirty">
+        <div *ngIf="checkZip.hasError('required')">
+            Zip code is required
+        </div>
+        <div *ngIf="checkZip.hasError('min')">
+            Zip code must be at least 1 digit <br>
+        </div>
+        <div *ngIf="checkZip.hasError('max')">
+            Zip code is invalid <br>
+        </div>
+    </div>
+
+    <div class="error" *ngIf="checkCountry.invalid && checkCountry.dirty">
+        <div *ngIf="checkCountry.hasError('required')">
+            Country is required
+        </div>
+        <div *ngIf="checkCountry.hasError('minlength')">
+            Country must be at least 2 characters <br>
+        </div>
+        <div *ngIf="checkCountry.hasError('maxlength')">
+            Country must be less than 60 characters <br>
+        </div>
+    </div>
+</form>
