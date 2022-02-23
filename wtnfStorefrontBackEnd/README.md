@@ -11,6 +11,8 @@ This repo acts as the backend to interact with the WTNF database of products, lo
   - PostgreSQL 12 database server    
   - a git client
   - a linux command line interface
+
+## Local Installation instructions
 ### Get the application code
 * Clone this repo or download the package .zip
   - Find a usable directory on your system and run ```git init```
