@@ -3,7 +3,7 @@
 // handler for images
 
 import express, { Request, Response } from 'express';
-import path from 'path'
+import path from 'path';
 import { Image, ImageStore } from '../models/image';
 import utilities from '../utilities/utilities';
 
@@ -35,7 +35,6 @@ const show = async (req: Request, res: Response) => {
     res.json(`Cannot GET image with id ${req.params.id} ERR -- ${err}`);
   }
 };
-
 
 // /imagefile/:id [GET]
 const getImage = async (req: Request, res: Response) => {

@@ -11,10 +11,10 @@ const request = supertest(app);
 
 describe('Test images endpoint responses', () => {
   const imageStore = new ImageStore();
-  const bagImg: Image = { 
+  const bagImg: Image = {
     name: 'Black Bag Crossbody',
-    path: 'public/images/products/blackbag.jpg' 
-};
+    path: 'public/images/products/blackbag.jpg'
+  };
 
   let imgID: string | undefined;
   let image: Image;
@@ -56,7 +56,6 @@ describe('Test images endpoint responses', () => {
     expect(response.status).toBe(200);
     done();
   });
-
 
   it(`show: GET /images/:id`, async done => {
     const response = await request.get(`/images/${imgID}`);

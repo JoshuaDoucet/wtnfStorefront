@@ -113,7 +113,7 @@ const getOrders = async (req: Request, res: Response) => {
     res.status(503);
     res.json(`Cannot GET user with id ${req.params.id} ERR -- ${err}`);
   }
-}
+};
 
 // /users/authenticate [POST]
 const authenticate = async (req: Request, res: Response) => {
@@ -136,7 +136,7 @@ const authenticate = async (req: Request, res: Response) => {
 const userRoutes = (app: express.Application) => {
   app.get('/users', utilities.verifyAuthJWT, index);
   app.get('/users/:id', utilities.verifyAuthJWT, show);
-  app.get('/users/:id/orders', utilities.verifyAuthJWT, getOrders)
+  app.get('/users/:id/orders', utilities.verifyAuthJWT, getOrders);
   app.post('/authenticate', authenticate);
   app.post('/users', create);
   app.put('/users/:id', update);

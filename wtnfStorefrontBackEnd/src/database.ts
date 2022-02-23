@@ -33,15 +33,14 @@ if (ENV === 'test') {
   });
 }
 // create a connection to the developmnent DB
-else if (ENV === 'dev'){
+else if (ENV === 'dev') {
   client = new Pool({
     host: POSTGRES_HOST,
     database: POSTGRES_DB,
     user: POSTGRES_USER,
     password: POSTGRES_PASSWORD
   });
-}
-else if (ENV === 'prod'){
+} else if (ENV === 'prod') {
   client = new Pool({
     host: POSTGRES_PROD_HOST,
     port: parseInt((POSTGRES_PROD_PORT as unknown) as string),
@@ -49,8 +48,8 @@ else if (ENV === 'prod'){
     user: POSTGRES_PROD_USER,
     password: POSTGRES_PROD_PASSWORD
   });
-}else{
-  throw new Error('Invalid ENV to init DB')
+} else {
+  throw new Error('Invalid ENV to init DB');
 }
 
 export default client;

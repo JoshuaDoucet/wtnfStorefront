@@ -54,12 +54,8 @@ export class OrderStore {
     }
   }
 
-
   // update order status
-  async update(
-    orderId: string,
-    status: string
-  ): Promise<Order> {
+  async update(orderId: string, status: string): Promise<Order> {
     try {
       const sql =
         'UPDATE orders ' +
@@ -67,9 +63,7 @@ export class OrderStore {
         'WHERE id = ($1)' +
         'RETURNING *';
       const conn = await Client.connect();
-      const result = await conn.query(sql, 
-        [ orderId, 
-          status]);
+      const result = await conn.query(sql, [orderId, status]);
       const updatedItem = result.rows[0];
       conn.release();
       return updatedItem;
@@ -79,7 +73,7 @@ export class OrderStore {
       );
     }
   }
-  
+
   // DELETE an order row
   async delete(id: string): Promise<Order> {
     try {
@@ -152,7 +146,6 @@ export class OrderStore {
     }
   }
 
-
   // addProduct to order
   async addProduct(
     productId: string,
@@ -176,49 +169,46 @@ export class OrderStore {
     }
   }
 
-    // updateProdQuantity in order
-    async updateProdQuantity(
-      productId: string,
-      orderId: string,
-      quantity: number
-    ): Promise<object> {
-      try {
-        const sql =
-          'UPDATE order_products ' +
-          `SET product_quantity = ($3) ` +
-          'WHERE order_id = (SELECT id FROM orders WHERE id = ($2))' +
-          'AND product_id = (SELECT id FROM products WHERE id = ($1)) RETURNING *';
-        const conn = await Client.connect();
-        const result = await conn.query(sql, 
-          [productId, 
-            orderId, 
-            quantity]);
-        const updatedItem = result.rows[0];
-        conn.release();
-        return updatedItem;
-      } catch (err) {
-        throw new Error(
-          `Could not update quantity for product ${productId} to order ${orderId} ERR -- ${err}`
-        );
-      }
+  // updateProdQuantity in order
+  async updateProdQuantity(
+    productId: string,
+    orderId: string,
+    quantity: number
+  ): Promise<object> {
+    try {
+      const sql =
+        'UPDATE order_products ' +
+        `SET product_quantity = ($3) ` +
+        'WHERE order_id = (SELECT id FROM orders WHERE id = ($2))' +
+        'AND product_id = (SELECT id FROM products WHERE id = ($1)) RETURNING *';
+      const conn = await Client.connect();
+      const result = await conn.query(sql, [productId, orderId, quantity]);
+      const updatedItem = result.rows[0];
+      conn.release();
+      return updatedItem;
+    } catch (err) {
+      throw new Error(
+        `Could not update quantity for product ${productId} to order ${orderId} ERR -- ${err}`
+      );
     }
+  }
 
-    // removeProducts from order, removes all products from an order
-    async removeProduct(productId: string, orderId: string): Promise<object[]> {
-      try {
-        const sql = 'DELETE FROM order_products WHERE order_id=($1) AND product_id=($2) RETURNING *';
-        const connect = await Client.connect();
-        const result = await connect.query(sql, [orderId, productId]);
-        const delProduct = result.rows[0];
-        connect.release();
-        return delProduct;
-      } catch (err) {
-        throw new Error(
-          `Could not delete product with ID ${productId} from order ID ${orderId}. Error: ${err}`
-        );
-      }
+  // removeProducts from order, removes all products from an order
+  async removeProduct(productId: string, orderId: string): Promise<object[]> {
+    try {
+      const sql =
+        'DELETE FROM order_products WHERE order_id=($1) AND product_id=($2) RETURNING *';
+      const connect = await Client.connect();
+      const result = await connect.query(sql, [orderId, productId]);
+      const delProduct = result.rows[0];
+      connect.release();
+      return delProduct;
+    } catch (err) {
+      throw new Error(
+        `Could not delete product with ID ${productId} from order ID ${orderId}. Error: ${err}`
+      );
     }
-
+  }
 
   // removeProducts from order, removes all products from an order
   async removeProducts(orderId: string): Promise<Order[]> {

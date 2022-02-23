@@ -300,26 +300,25 @@ export class ProductStore {
         `Could not delete images from product ID ${productId}. Error: ${err}`
       );
     }
-  }  
+  }
 
-    // get product image IDs
-    async getMaterials(productId: string): Promise<string[]> {
-      try {
-        const sql =
-          'SELECT materials.id FROM materials ' +
-          'INNER JOIN product_materials ON product_materials.product_id=($1) ' +
-          'AND product_materials.materials_id=materials.id';
-        const conn = await Client.connect();
-        const result = await conn.query(sql, [productId]);
-        const colorIds = result.rows;
-        const idArray = this.normalizeIdResults(colorIds);
-        conn.release();
-        return idArray;
-      } catch (error) {
-        throw new Error(`Could not get product matterial. Error: ${error}`);
-      }
+  // get product image IDs
+  async getMaterials(productId: string): Promise<string[]> {
+    try {
+      const sql =
+        'SELECT materials.id FROM materials ' +
+        'INNER JOIN product_materials ON product_materials.product_id=($1) ' +
+        'AND product_materials.materials_id=materials.id';
+      const conn = await Client.connect();
+      const result = await conn.query(sql, [productId]);
+      const colorIds = result.rows;
+      const idArray = this.normalizeIdResults(colorIds);
+      conn.release();
+      return idArray;
+    } catch (error) {
+      throw new Error(`Could not get product matterial. Error: ${error}`);
     }
-  
+  }
 
   // addMaterial to product
   async addMaterial(materialId: string, productId: string): Promise<Product> {
@@ -421,4 +420,3 @@ export class ProductStore {
     return resultIds;
   };
 }
-

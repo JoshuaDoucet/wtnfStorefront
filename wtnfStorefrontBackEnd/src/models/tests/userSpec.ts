@@ -27,8 +27,6 @@ describe('User model tests', () => {
   };
   let locationId: string | undefined;
 
-
-
   beforeAll(async function() {
     await locationStore.deleteAll();
     const location = await locationStore.create(testLocation);
@@ -118,22 +116,22 @@ describe('User model tests', () => {
   });
 
   // Tests for veiwing user orders
-  it('getOrders should return a list with 1 order', async () =>{
+  it('getOrders should return a list with 1 order', async () => {
     const orderStore = new OrderStore();
     let testOrder: Order = {
-      user_id: "-1",
-      status: "active"
-    }
+      user_id: '-1',
+      status: 'active'
+    };
     let orderId: string | undefined;
-    if(userId){
+    if (userId) {
       testOrder.user_id = userId;
       // create an order
       const addedOrder = await orderStore.create(testOrder);
       // see if getOrders returns an order
       const orders = await userStore.getOrders(userId);
       expect(orders.length).toEqual(1);
-    }else{
-      throw new Error("User Id must be defined to create an order.");
+    } else {
+      throw new Error('User Id must be defined to create an order.');
     }
   });
 });

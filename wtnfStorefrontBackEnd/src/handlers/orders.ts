@@ -78,7 +78,7 @@ const create = async (req: Request, res: Response) => {
 };
 
 // /orders/:id [PUT]
-const update  = async (_req: Request, res: Response) => {
+const update = async (_req: Request, res: Response) => {
   const orderId: string = _req.params.id;
   const status: string = _req.body.status;
   try {
@@ -130,12 +130,16 @@ const removeProduct = async (_req: Request, res: Response) => {
 };
 
 // /orders/:id/products/:prodId [PUT]
-const updateProdQuantity  = async (_req: Request, res: Response) => {
+const updateProdQuantity = async (_req: Request, res: Response) => {
   const orderId: string = _req.params.id;
   const productId: string = _req.params.prodId;
   const quantity: number = _req.body.product_quantity;
   try {
-    const updatedOrderProduct = await store.updateProdQuantity(productId, orderId, quantity);
+    const updatedOrderProduct = await store.updateProdQuantity(
+      productId,
+      orderId,
+      quantity
+    );
     res.json(updatedOrderProduct);
   } catch (err) {
     res.status(400);
@@ -165,15 +169,23 @@ const orderRoutes = (app: express.Application) => {
   app.get('/orders', utilities.verifyAuthJWT, index);
   app.get('/orders/:id', utilities.verifyAuthJWT, show);
   app.get('/orders/:id/products', utilities.verifyAuthJWT, getProducts);
-  
+
   app.put('/orders/:id', utilities.verifyAuthJWT, update);
-  app.put('/orders/:id/products/:prodId', utilities.verifyAuthJWT, updateProdQuantity )
-  
+  app.put(
+    '/orders/:id/products/:prodId',
+    utilities.verifyAuthJWT,
+    updateProdQuantity
+  );
+
   app.post('/orders', utilities.verifyAuthJWT, create);
   app.post('/orders/:id/products', utilities.verifyAuthJWT, addProduct);
-  
+
   app.delete('/orders/:id', utilities.verifyAuthJWT, destroy);
-  app.delete('/orders/:id/products/:prodId', utilities.verifyAuthJWT, removeProduct )
+  app.delete(
+    '/orders/:id/products/:prodId',
+    utilities.verifyAuthJWT,
+    removeProduct
+  );
 };
 
 export default orderRoutes;

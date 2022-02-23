@@ -4,7 +4,7 @@ import cors from 'cors';
 
 //Route functions
 import colorRoutes from './handlers/colors';
-import imageRoutes from './handlers/images'
+import imageRoutes from './handlers/images';
 import locationRoutes from './handlers/locations';
 import materialRoutes from './handlers/materials';
 import orderRoutes from './handlers/orders';

@@ -5,7 +5,7 @@
 import { ProductStore, Product, ProductUpdate } from '../product';
 import { LocationStore, Location } from '../location';
 import { ColorStore, Color } from '../color';
-import { ImageStore, Image} from '../image'
+import { ImageStore, Image } from '../image';
 import { MaterialStore, Material } from '../material';
 import utilities from '../../utilities/utilities';
 
@@ -53,11 +53,11 @@ describe('Product model tests', () => {
   let materialId: string | undefined;
 
   const imageStore = new ImageStore();
-  const blackBagImg: Image = { 
-      name: 'Black Bag Crossbody',
-      path: 'public/images/products/blackbag.jpg' 
+  const blackBagImg: Image = {
+    name: 'Black Bag Crossbody',
+    path: 'public/images/products/blackbag.jpg'
   };
-  let imageId: string | undefined
+  let imageId: string | undefined;
 
   const locationStore = new LocationStore();
   let testLocation: Location = {

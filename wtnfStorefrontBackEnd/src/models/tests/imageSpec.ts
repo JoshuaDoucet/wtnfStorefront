@@ -2,9 +2,9 @@ import { ImageStore, Image } from '../image';
 
 describe('Image model tests', () => {
   const imageStore = new ImageStore();
-  const blackBagImg: Image = { 
-      name: 'Black Bag Crossbody',
-      path: 'public/images/products/blackbag.jpg' 
+  const blackBagImg: Image = {
+    name: 'Black Bag Crossbody',
+    path: 'public/images/products/blackbag.jpg'
   };
 
   beforeAll(async function() {

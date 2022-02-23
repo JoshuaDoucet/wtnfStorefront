@@ -48,9 +48,7 @@ export class ImageStore {
       connect.release();
       return addedImg;
     } catch (error) {
-      throw new Error(
-        `Could not add image ${image.path}. Error: ${error}`
-      );
+      throw new Error(`Could not add image ${image.path}. Error: ${error}`);
     }
   }
 
