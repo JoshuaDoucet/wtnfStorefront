@@ -1,9 +1,8 @@
 // Products Components/ Displays a list of all available products for sale
 
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../models/product'
+import { Product } from '../../models/product';
 import { ProductsService } from 'src/app/services/products/products.service';
-
 
 @Component({
   selector: 'app-products',
@@ -14,7 +13,7 @@ export class ProductsComponent implements OnInit {
   // list of all products for sale
   products: Product[] = [];
 
-  constructor(private productService: ProductsService) { }
+  constructor(private productService: ProductsService) {}
 
   ngOnInit(): void {
     // Get all products from service
@@ -22,6 +21,4 @@ export class ProductsComponent implements OnInit {
       this.products = res;
     });
   }
-
-
 }

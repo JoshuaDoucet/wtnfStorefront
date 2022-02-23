@@ -12,10 +12,10 @@ import { AuthenticateService } from 'src/app/services/authenticate/authenticate.
 })
 export class NavigationComponent implements OnInit {
   userId: string | null = null;
-  userFirstName : string | null = null;
+  userFirstName: string | null = null;
   @Input() navigateOn: boolean = true;
 
-  constructor(private authenticateService: AuthenticateService) { }
+  constructor(private authenticateService: AuthenticateService) {}
 
   ngOnInit(): void {
     // get user info from local storage

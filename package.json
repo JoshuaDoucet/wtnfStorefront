@@ -6,7 +6,7 @@
         "frontend:build": "cd wtnfStorefrontFrontEnd && npm run build",
         "backend:build": "cd wtnfStorefrontBackEnd && npm run build",
 
-        "frontend:format": "cd wtnfStorefrontBackEnd && npm run prettier",
+        "frontend:format": "cd wtnfStorefrontFrontEnd && npm run prettier",
         "backend:format": "cd wtnfStorefrontBackEnd && npm run prettier",
 
         "frontend:test": "cd wtnfStorefrontFrontEnd && npm run test",

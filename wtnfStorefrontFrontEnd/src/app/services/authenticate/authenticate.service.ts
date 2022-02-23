@@ -7,25 +7,19 @@ import { ConfigurationService } from '../configuration/configuration.service';
   providedIn: 'root'
 })
 export class AuthenticateService {
-
-  constructor(private http: HttpClient, 
-    private config: ConfigurationService) { }
+  constructor(private http: HttpClient, private config: ConfigurationService) {}
 
   authenticate(email: string, password: string): Observable<string> {
-    return this.http.post<string>(
-        this.config.getApiHost() + '/authenticate',
-        { 
-          email: email, 
-          password: password
-        }
-    )
+    return this.http.post<string>(this.config.getApiHost() + '/authenticate', {
+      email: email,
+      password: password
+    });
   }
 
-  signOut(){
+  signOut() {
     localStorage.removeItem('token');
-    localStorage.removeItem('activeOrdId')
-    localStorage.removeItem('userId')
+    localStorage.removeItem('activeOrdId');
+    localStorage.removeItem('userId');
     localStorage.removeItem('userFirstName');
   }
-  
 }

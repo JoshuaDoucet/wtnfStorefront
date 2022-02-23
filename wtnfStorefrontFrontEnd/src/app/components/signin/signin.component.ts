@@ -13,34 +13,37 @@ import { UserProfileService } from 'src/app/services/user-profile/user-profile.s
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-  email: string = "";
-  password: string = "";
-  errMsg: string = "";
+  email: string = '';
+  password: string = '';
+  errMsg: string = '';
   // used to disable buttons on navigator
   navigateOn: boolean = false;
 
-  constructor(private authenticateService: AuthenticateService,
+  constructor(
+    private authenticateService: AuthenticateService,
     private router: Router,
     private userProfileService: UserProfileService,
-    private orderServoce: OrdersService) { }
+    private orderServoce: OrdersService
+  ) {}
 
   ngOnInit(): void {
-    this.errMsg = "";
+    this.errMsg = '';
   }
 
-  signIn(){
-    this.authenticateService.authenticate(this.email, this.password)
+  signIn() {
+    this.authenticateService
+      .authenticate(this.email, this.password)
       .subscribe(res => {
         // add JWT to local storage
         localStorage.setItem('token', res);
         const userId = this.userProfileService.getUserIdFromToken();
-        if(userId == null){
+        if (userId == null) {
           // if sign in unsucessful remain on page. update error message
-          this.errMsg = "Invalid sign-in credentials."
+          this.errMsg = 'Invalid sign-in credentials.';
           localStorage.removeItem('userId');
           localStorage.removeItem('userFirstName');
-          localStorage.removeItem("activeOrdId");
-        }else{
+          localStorage.removeItem('activeOrdId');
+        } else {
           //  if sign in successful
           // add user id to local storage
           localStorage.setItem('userId', userId);
@@ -55,5 +58,4 @@ export class SigninComponent implements OnInit {
         }
       });
   }
-
 }

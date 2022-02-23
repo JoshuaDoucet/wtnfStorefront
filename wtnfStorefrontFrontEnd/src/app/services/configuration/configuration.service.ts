@@ -4,9 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ConfigurationService {
-  private apiHost: string = "http://52.0.169.67:3000";
+  private apiHost: string = 'http://52.0.169.67:3000';
 
-  constructor() { }
+  constructor() {}
 
   getApiHost(): string {
     return this.apiHost;

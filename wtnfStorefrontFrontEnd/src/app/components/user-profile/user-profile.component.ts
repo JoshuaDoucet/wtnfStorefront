@@ -14,13 +14,15 @@ import { LocationService } from 'src/app/services/location/location.service';
 })
 export class UserProfileComponent implements OnInit {
   user: User = new User();
-  location: Location = {name: ""};
-  userId: string | null = "";
-  constructor(private userProfileService: UserProfileService,
-              private locationService: LocationService) { }
+  location: Location = { name: '' };
+  userId: string | null = '';
+  constructor(
+    private userProfileService: UserProfileService,
+    private locationService: LocationService
+  ) {}
 
   ngOnInit(): void {
-    // Fetch user if from authorization JWT 
+    // Fetch user if from authorization JWT
     this.userId = this.userProfileService.getUserIdFromToken();
     // fetch user info from API
     this.getUserInfo();
@@ -28,13 +30,13 @@ export class UserProfileComponent implements OnInit {
 
   // fetch user info from API
   getUserInfo(): void {
-    if(this.userId != null){
+    if (this.userId != null) {
       this.userProfileService.getUser(this.userId).subscribe({
-        error: (err) => {
+        error: err => {
           console.log('ERROR - Could not retrive user.');
           this.userId = null;
         },
-        next: (user) => {
+        next: user => {
           this.user = user;
           this.getLocation();
         }
@@ -42,16 +44,17 @@ export class UserProfileComponent implements OnInit {
     }
   }
 
-  getLocation(){
-    console.log(this.user)
-    if(this.user.location_id != null){
+  getLocation() {
+    console.log(this.user);
+    if (this.user.location_id != null) {
       this.locationService.getLocation(this.user.location_id).subscribe({
-        error: (err) => {console.log("Cannot get location associated with user" + err)},
-        next: (location) => {
+        error: err => {
+          console.log('Cannot get location associated with user' + err);
+        },
+        next: location => {
           this.location = location;
         }
       });
     }
   }
-
 }
