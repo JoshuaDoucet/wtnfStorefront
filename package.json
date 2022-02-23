@@ -12,6 +12,9 @@
         "frontend:test": "cd wtnfStorefrontFrontEnd && npm run test",
         "backend:test": "cd wtnfStorefrontBackEnd && npm run test",
 
+        "frontend:start": "cd wtnfStorefrontFrontEnd && npm run start",
+        "backend:start": "cd wtnfStorefrontBackEnd && npm run start",
+        
         "frontend:deploy": "cd wtnfStorefrontFrontEnd && npm run deploy",
         "backend:deploy": "cd wtnfStorefrontBackEnd && npm run deploy"
     }
