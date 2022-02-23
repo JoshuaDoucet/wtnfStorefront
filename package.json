@@ -1,0 +1,18 @@
+{
+    "scripts": {
+        "frontend:install": "cd wtnfStorefrontFrontEnd && npm install",
+        "backend:install": "cd wtnfStorefrontBackEnd && npm install",
+
+        "frontend:build": "cd wtnfStorefrontFrontEnd && npm run build",
+        "backend:build": "cd wtnfStorefrontBackEnd && npm run build",
+
+        "frontend:format": "cd wtnfStorefrontBackEnd && npm run prettier",
+        "backend:format": "cd wtnfStorefrontBackEnd && npm run prettier",
+
+        "frontend:test": "cd wtnfStorefrontFrontEnd && npm run test",
+        "backend:test": "cd wtnfStorefrontBackEnd && npm run test",
+
+        "frontend:deploy": "cd wtnfStorefrontFrontEnd && npm run deploy",
+        "backend:deploy": "cd wtnfStorefrontBackEnd && npm run deploy"
+    }
+}
