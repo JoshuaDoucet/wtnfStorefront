@@ -4,7 +4,7 @@
 - The backend API can be accessed via http://wtnfapi-env.eba-uzamsy27.us-east-1.elasticbeanstalk.com:3000/
 - The database is located at http://wtnf-storefront-postgres-db.chgfv7c9c3gf.us-east-1.rds.amazonaws.com:5432/
 
-[![JoshuaDoucet](https://circleci.com/<VCS>/JoshuaDoucet/wtnfStorefront.svg?style=svg)](https://app.circleci.com/pipelines/github/JoshuaDoucet/wtnfStorefront?filter=all)
+[![JoshuaDoucet](https://circleci.com/gh/JoshuaDoucet/wtnfStorefront.svg?style=svg)](https://app.circleci.com/pipelines/github/JoshuaDoucet/wtnfStorefront?filter=all)
 
 
 ## Documentation
