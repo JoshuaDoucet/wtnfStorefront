@@ -64,10 +64,10 @@ jobs:
           command: |
             npm run backend:deploy
 workflows:
-  udagram:
-  jobs: 
-    - install
-    - format
-    - build
-    - deploy
+  check_build_deploy:  
+    jobs: 
+      - install
+      - format
+      - build
+      - deploy
 
