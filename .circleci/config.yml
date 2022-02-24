@@ -18,7 +18,8 @@ jobs:
           name: Back-End Format
           command: |
             npm run backend:format
-  build:
+
+  install:
     docker:
     - image: "cimg/base:stable"
     steps:
@@ -32,6 +33,13 @@ jobs:
           name: Back-End Install
           command: |
             npm run backend:install
+    
+  build:
+    docker:
+    - image: "cimg/base:stable"
+    steps:
+      - node/install
+      - checkout
       - run:
           name: Front-End Build
           command: |
@@ -58,6 +66,7 @@ jobs:
 workflow:
   udagram:
   jobs: 
+    - install
     - format
     - build
     - deploy
