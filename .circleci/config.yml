@@ -63,7 +63,7 @@ jobs:
           name: Back-End Deploy
           command: |
             npm run backend:deploy
-workflow:
+workflows:
   udagram:
   jobs: 
     - install
