@@ -17,5 +17,10 @@
         
         "frontend:deploy": "cd wtnfStorefrontFrontEnd && npm run deploy",
         "backend:deploy": "cd wtnfStorefrontBackEnd && npm run deploy"
+    },
+
+    "devDependencies": {
+        "prettier": "^1.19.1",
+        
     }
 }
