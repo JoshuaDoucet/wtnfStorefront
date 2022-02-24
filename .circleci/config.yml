@@ -69,11 +69,11 @@ workflows:
       - install
       - format:
           requires:
-            install
+            - install
       - build:
           requires:
             - format
       - deploy:
           requires:
-          - build
+            - build
 
