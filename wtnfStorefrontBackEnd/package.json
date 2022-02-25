@@ -13,7 +13,7 @@
     "test": "tsc && ENV=test db-migrate --env test up && ENV=test jasmine && db-migrate db:drop test",
     "test-save": "tsc && ENV=test db-migrate --env test up && ENV=test jasmine > ./src/tests/JASMINE_TEST_RESULTS.txt && db-migrate db:drop test",
     "build": "tsc",
-    "deploy": "eb deploy"
+    "deploy": "chmod +x ./bin/deploy.sh && ./bin/deploy.sh"
   },
   "author": "Joshua Doucet",
   "license": "ISC",
