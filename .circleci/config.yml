@@ -50,5 +50,9 @@ jobs:
 workflows:
   check_build_deploy:  
     jobs: 
-      - build_and_deploy
+      - build_and_deploy:
+          filters:
+            branches:
+               only:                
+                  - main
 
