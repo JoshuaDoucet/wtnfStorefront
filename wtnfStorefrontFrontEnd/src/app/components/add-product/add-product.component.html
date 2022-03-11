@@ -1,0 +1,263 @@
+<app-navigation></app-navigation>
+
+<div class="add-prod-container">
+
+<form #form="ngForm" (ngSubmit)="addProduct()">
+    <h2>Add Product</h2>
+    <label for="name">Title: </label>
+    <input type="text" 
+            name="name" 
+            required 
+            minlength="8" 
+            maxlength="254" 
+            [(ngModel)]="name"
+            #checkName="ngModel"><br>
+
+    <label for="price">Price: $</label>
+    <input type="number" 
+            name="price" 
+            required 
+            min="0"  
+            max="9999999" 
+            [(ngModel)]="price"
+            #checkPrice="ngModel"><br>
+
+    <label for="price">Cost: $</label>
+    <input type="number" 
+            name="cost" 
+            required 
+            min="0"  
+            max="9999999" 
+            [(ngModel)]="cost"
+            #checkPrice="ngModel"><br>
+    
+    <label for="price">Quantity Available: </label>
+    <input type="number" 
+            name="boh" 
+            required 
+            min="0"  
+            max="9999999" 
+            [(ngModel)]="boh"
+            #checkBoh="ngModel"><br>
+    
+    <label for="price">For sale? </label>
+    <input type="checkbox" 
+            name="for_sale" 
+            [(ngModel)]="for_sale"><br>
+    
+    <label for="name">Categories: </label>
+    <input type="text" 
+            name="category" 
+            maxlength="254" 
+            [(ngModel)]="category"
+            #checkCat="ngModel"><br>
+    
+    <label for="name">Description: </label>
+    <input type="text" 
+            name="description" 
+            required 
+            minlength="20" 
+            maxlength="400" 
+            [(ngModel)]="description"
+            #checkDesc="ngModel"><br>
+
+    <label for="name">Measurments: </label>
+    <input type="text" 
+            name="measurments" 
+            maxlength="254" 
+            [(ngModel)]="measurments"
+            #checkMeas="ngModel"><br>
+    
+    <label for="name">Item Owner: </label>
+    <input type="text" 
+            name="owner" 
+            maxlength="254" 
+            [(ngModel)]="owner"
+            #checkOwn="ngModel"><br>
+    
+    <label for="name">SKU: </label>
+    <input type="text" 
+            name="sku" 
+            maxlength="100" 
+            [(ngModel)]="sku"
+            #checkSku="ngModel"><br>
+
+    <label for="name">Family of Sizes: </label>
+    <input type="text" 
+            name="size_family" 
+            maxlength="64" 
+            [(ngModel)]="size_family"
+            #checkSizeFam="ngModel"><br>
+
+    <label for="name">Size: </label>
+    <input type="text" 
+            name="size" 
+            maxlength="64" 
+            [(ngModel)]="size"
+            #checkSize="ngModel"><br>
+
+    <label for="name">Brand: </label>
+    <input type="text" 
+            name="brand" 
+            maxlength="100" 
+            [(ngModel)]="brand"
+            #checkBrand="ngModel"><br>
+
+    <label for="name">Condition: </label>
+    <input type="text" 
+            name="condition" 
+            maxlength="254" 
+            [(ngModel)]="condition"
+            #checkCond="ngModel"><br>
+    
+    <label for="name">Instructions: </label>
+    <input type="text" 
+            name="instructions" 
+            maxlength="2000" 
+            [(ngModel)]="instructions"
+            #checkInst="ngModel"><br>
+
+    <label for="name">Country of Origin: </label>
+    <input type="text" 
+            name="country_origin" 
+            maxlength="100" 
+            [(ngModel)]="country_origin"
+            #checkCountry="ngModel"><br>
+
+    <label for="name">RN #: </label>
+    <input type="text" 
+            name="rn_num" 
+            maxlength="20" 
+            [(ngModel)]="rn_num"
+            #checkRn="ngModel"><br>
+
+    <label for="name">Weight (g): </label>
+    <input type="number" 
+            name="condition" 
+            min="0"
+            max="10000000"
+            [(ngModel)]="weight_grams"
+            #checkWeight="ngModel"><br>
+
+    <label for="name">Tags/Hashtags: </label>
+    <input type="text" 
+            name="tags" 
+            maxlength="254" 
+            [(ngModel)]="tags"
+            #checkTags="ngModel"><br>
+
+    <button type="submit" [disabled]="form.invalid">Add Product</button>
+
+    <!--Error messages-->
+    <!--
+    <div class="error" *ngIf="checkFirst.invalid && checkFirst.dirty">
+        <div *ngIf="checkFirst.hasError('required')">
+            First name is required
+        </div>
+        <div *ngIf="checkFirst.hasError('minlength')">
+            First name must be at least 2 characters <br>
+        </div>
+        <div *ngIf="checkFirst.hasError('maxlength')">
+            First name must be less than 50 characters <br>
+        </div>
+    </div>
+
+    <div class="error" *ngIf="checkLast.invalid && checkLast.dirty">
+        <div *ngIf="checkLast.hasError('required')">
+            Last name is required
+        </div>
+        <div *ngIf="checkLast.hasError('minlength')">
+            Last name must be at least 2 characters <br>
+        </div>
+        <div *ngIf="checkLast.hasError('maxlength')">
+            Last name must be less than 50 characters <br>
+        </div>
+    </div>
+
+    <div class="error" *ngIf="checkPhone.invalid && checkPhone.dirty">
+        <div *ngIf="checkPhone.hasError('required')">
+            Phone Number is required
+        </div>
+        <div *ngIf="checkPhone.hasError('min')">
+            Phone Number is invalid <br>
+        </div>
+        <div *ngIf="checkEmail.hasError('maxlength')">
+            Phone Number is too long <br>
+        </div>
+    </div>
+
+    <div class="error" *ngIf="checkEmail.invalid && checkEmail.dirty">
+        <div *ngIf="checkEmail.hasError('required')">
+            Email is required
+        </div>
+        <div *ngIf="checkEmail.hasError('minlength')">
+            Email must be at least 6 characters <br>
+        </div>
+        <div *ngIf="checkEmail.hasError('maxlength')">
+            Email must be less than 400 characters <br>
+        </div>
+    </div>
+
+    <div class="error" *ngIf="checkStreet.invalid && checkStreet.dirty">
+        <div *ngIf="checkStreet.hasError('required')">
+            Street is required
+        </div>
+        <div *ngIf="checkStreet.hasError('minlength')">
+            Street address must be at least 6 characters <br>
+        </div>
+        <div *ngIf="checkCity.hasError('maxlength')">
+            Street address must be less than 60 characters <br>
+        </div>
+    </div>
+
+    <div class="error" *ngIf="checkCity.invalid && checkCity.dirty">
+        <div *ngIf="checkCity.hasError('required')">
+            City is required
+        </div>
+        <div *ngIf="checkCity.hasError('minlength')">
+            City must be at least 2 characters <br>
+        </div>
+        <div *ngIf="checkCity.hasError('maxlength')">
+            State must be less than 50 characters <br>
+        </div>
+    </div>
+
+    <div class="error" *ngIf="checkState.invalid && checkState.dirty">
+        <div *ngIf="checkState.hasError('required')">
+            State is required
+        </div>
+        <div *ngIf="checkState.hasError('minlength')">
+            State must be at least 2 characters <br>
+        </div>
+        <div *ngIf="checkState.hasError('maxlength')">
+            State must be less than 20 characters <br>
+        </div>
+    </div>
+
+    <div class="error" *ngIf="checkZip.invalid && checkZip.dirty">
+        <div *ngIf="checkZip.hasError('required')">
+            Zip code is required
+        </div>
+        <div *ngIf="checkZip.hasError('min')">
+            Zip code must be at least 1 digit <br>
+        </div>
+        <div *ngIf="checkZip.hasError('max')">
+            Zip code is invalid <br>
+        </div>
+    </div>
+
+    <div class="error" *ngIf="checkCountry.invalid && checkCountry.dirty">
+        <div *ngIf="checkCountry.hasError('required')">
+            Country is required
+        </div>
+        <div *ngIf="checkCountry.hasError('minlength')">
+            Country must be at least 2 characters <br>
+        </div>
+        <div *ngIf="checkCountry.hasError('maxlength')">
+            Country must be less than 60 characters <br>
+        </div>
+    </div>
+
+    -->
+</form>
+</div>

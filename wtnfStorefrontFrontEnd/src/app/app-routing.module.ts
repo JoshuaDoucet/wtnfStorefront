@@ -7,6 +7,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { CartComponent } from './components/cart/cart.component';
 import { OrderConfirmComponent } from './components/order-confirm/order-confirm.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 const routes: Routes = [
   { path: '', component: ProductsComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'cart/confirm', component: OrderConfirmComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'products/:id', component: ProductDetailsComponent },
+  { path: 'addproduct', component: AddProductComponent},
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'profile', component: UserProfileComponent }

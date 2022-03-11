@@ -19,6 +19,7 @@ import { SigninComponent } from './components/signin/signin.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { SignupComponent } from './components/signup/signup.component';
     NavigationComponent,
     SigninComponent,
     UserProfileComponent,
-    SignupComponent
+    SignupComponent,
+    AddProductComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [
