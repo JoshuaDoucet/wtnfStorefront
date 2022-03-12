@@ -53,6 +53,11 @@ const getImage = async (req: Request, res: Response) => {
   }
 };
 
+// uploadImage [POST]
+const uploadImage = async(req: Request, res: Response) => {
+  // TODO implement backend logic to save an uploaded image
+}
+
 // /images [POST]
 const create = async (req: Request, res: Response) => {
   let imgName: string | undefined;
@@ -93,6 +98,7 @@ const imageRoutes = (app: express.Application) => {
   app.get('/images/:id', show);
   app.get('/imagefile/:id', getImage);
   app.post('/images', utilities.verifyAuthJWT, create);
+  app.post('/imagefile', utilities.verifyAuthJWT, uploadImage);
   app.delete('/images/:id', utilities.verifyAuthJWT, destroy);
 };
 
