@@ -145,6 +145,33 @@
             maxlength="254" 
             [(ngModel)]="tags"
             #checkTags="ngModel"><br>
+    
+    <div id="colorsDiv">
+        <label for="color1">Color 1: </label>
+        <input type="text" 
+                id="color1"
+                name="color1" 
+                maxlength="40" ><br>
+    </div>
+    <button (click)="addColor()">Add another color</button><br>
+
+    <div id="materialsDiv">
+        <label for="mat1">Material 1: </label>
+        <input type="text" 
+                id="mat1"
+                name="mat1" 
+                maxlength="40" ><br>
+    </div>
+    <button (click)="addMaterial()">Add another material</button><br>
+
+
+    <div id="imagesDiv">
+        <label for="img1">Image 1: </label>
+        <input type="file" 
+                id="img1"
+                name="img1"><br>
+    </div>
+    <button (click)="addImage()">Add another image</button><br>
 
     <button type="submit" [disabled]="form.invalid">Add Product</button>
 
